@@ -29,7 +29,7 @@
 	//r0 = GPIOA
 	//r1 = GPIOB
 	//r2 = segData
-	//r3 = Tracking
+	//r3 = Tracking/Memory
 	//r4 = transfere register 1
 
 //Initialization (Have C as default print)
