@@ -52,7 +52,6 @@ sseglut:
 
 	//Compare
 	cmp r4, #1
-	it ne //if not equ
 
 	//If Not eq Return ProjectC
 	bne ssegult
@@ -75,27 +74,21 @@ stage2:
 	*	7			3					c
 	*/
 	cmp r3, #3 //If r3 is less than 3, print 3
-	it cc
 	bcc print3
 
 	cmp r3, #3 //If r3 is 3
-	it eq
 	beq print0
 
 	cmp r3, #4 //If r3 is 4
-	it eq
 	beq print6
 
 	cmp r3, #5 //If r3 is 5
-	it eq
 	beq print5
 
 	cmp r3, #6 //If r3 is 6
-	it eq
 	beq print3
 
 	cmp r3, #7 //If r3 is 7
-	it eq
 	beq printc
 
 printc:
@@ -124,10 +117,8 @@ stage3:
 	cmp r3, #7
 
 	//if not 7 r3 = r3+1, if 7 r3 = 0
-	it eq
 	ldreq r3, #0
 
-	it ne
 	addne r3, #1
 
 	//Branch to stage 4
@@ -144,8 +135,8 @@ stage4:
 
 	//Compare
 	cmp r4, #1
-	it eq //if equ
 
+	//if equ
 	beq stage4
 
 	//Otherwise restart program
