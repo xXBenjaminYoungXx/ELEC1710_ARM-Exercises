@@ -93,23 +93,23 @@ stage2:
 
 printc:
 	ldr r4, [r2, #12] //Get data from LUT for C **ASK IF I NEED TO DO THIS**
-	str r4, [r1] //Store r4 data in GPIOA resesture.
+	str r4, [r1] //Store r4 data in GPIOA register.
 	b stage3
 print3:
 	ldr r4, [r2, #3] //Get data from LUT for 3 **ASK IF I NEED TO DO THIS**
-	str r4, [r1] //Store r4 data in GPIOA resesture.
+	str r4, [r1] //Store r4 data in GPIOA register.
 	b stage3
 print0:
 	ldr r4, [r2] //Get data from LUT for 0 **ASK IF I NEED TO DO THIS**
-	str r4, [r1] //Store r4 data in GPIOA resesture.
+	str r4, [r1] //Store r4 data in GPIOA register.
 	b stage3
 print6:
 	ldr r4, [r2, #6] //Get data from LUT for 6 **ASK IF I NEED TO DO THIS**
-	str r4, [r1] //Store r4 data in GPIOA resesture.
+	str r4, [r1] //Store r4 data in GPIOA register.
 	b stage3
 print5:
 	ldr r4, [r2, #5] //Get data from LUT for 5 **ASK IF I NEED TO DO THIS**
-	str r4, [r1] //Store r4 data in GPIOA resesture.
+	str r4, [r1] //Store r4 data in GPIOA register.
 	b stage3
 
 stage3:
