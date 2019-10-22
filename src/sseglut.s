@@ -117,8 +117,10 @@ stage3:
 	cmp r3, #7
 
 	//if not 7 r3 = r3+1, if 7 r3 = 0
+	//it eq
 	ldreq r3, #0
 
+	//it ne
 	addne r3, #1
 
 	//Branch to stage 4
@@ -135,8 +137,8 @@ stage4:
 
 	//Compare
 	cmp r4, #1
+	it eq //if equ
 
-	//if equ
 	beq stage4
 
 	//Otherwise restart program
