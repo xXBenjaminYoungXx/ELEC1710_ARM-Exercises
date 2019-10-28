@@ -37,14 +37,11 @@ int main(void)
 
 	for(;;) {
 		
-		//Project Part C coded task Benjamin Young
-		ProjectC();
-
 		// Uncomment to call label "blinky" in blinky.s
 		//blinky();
 
 		// Uncomment to call sseglut in sseglut.s
-		// sseglut();
+		sseglut();
 
 		// Uncomment the section below to run the array sum functions
 	/*
