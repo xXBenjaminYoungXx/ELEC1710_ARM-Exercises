@@ -19,7 +19,6 @@
 
 .equ GPIOA_IDR, 0x40010808 //Declare GPIOA_IDR (General Purpose I/O Port A _ Input) as Input address
 .equ GPIOB_ODR, 0x40010C0C //Declare GPIOB_ODR (General Purpose I/O Port B _ Output) as Output address
-//Note: A0 is used as bit input from debounced button
 
 //----------------------
 //Main Instruction Body|
@@ -31,136 +30,59 @@
 	//r2 = segData
 	//r3 = Tracking/Memory
 	//r4 = transfere register 1
+	//r5 = StateBef
+	//r6 = StateNow
 
 sseglut:
-	//Initialization (Have C as default print)
 	ldr r0, =GPIOA_IDR //r0 holds address of GPIOA
 	ldr r1, =GPIOB_ODR //r1 hold address of GPIOB
 	ldr r2, =ssegdata //Store LUT data in r2
-	ldr r3, =0x00000000 //Start at 0
+	ldr r3, =0x0 //Count Memory
+	ldr r5, =0x0 //State of button prior (Before)
 
-	//Print C, ie store 0x29 in GPIOB
-	ldr r4, [r2, #12] //Get data from LUT for C **ASK IF I NEED TO DO THIS**
-	lsl r4, r4, #3
-	str r4, [r1] //Store r4 data in GPIOB register.
+	//Set Seg to display C
+	ldrb r4, [r2, #7] //get data for c from LUT
+	lsl r4, r4, #3 //Shift bits by three as B0-2 are a no-go
+	str r4, [r1] //Store that data into GPIOB (Output) regesture
 
-stage1:
-	//Wait for clock input to be true
-	//Begin by looking for GPIOA_IDR A0 bit to be high
-	ldr r4, [r0]
+loop:
+	ldrb r6, [r0] //Load GPIOA (Input)
+	cmp r6, r5 //If 0,0:Loop | 1,0:writenum | 0,1:Loop | 1,1:Loop
+	it ls //If input has gone from off to on (Ie greater than) continue else loop
+	bls loop //If not greater than I.e 0-->1, loop
 
-	//Collect bit data using UBFX and store in r4
-	ubfx r4, r4, #0, #1
+writenum:
+	ldrb r4, [r2, r3] //Load data off LUT position r3
+	lsl r4, r4, #3 //Shift bits by 3
+	str r4, [r1] //Store data in GPIOB (Output)
+	mov r5, r6 //Make State prev eq to current state
 
-	//Compare
-	cmp r4, #1
-	it eq
-	beq stage2
-	bne stage1 //If Not eq Return to stage1
-
-stage2:
-
-	//At this stage we need to print the next number
-	//To do so a group of conditional branches will be used
-	//each branch will depend on r3
-	/*R3 value:     Current print:      What to print:
-	*	0			c					3
-	*	1			3					3
-	*	2			3					3
-	*	3			3					0
-	*	4			0					6
-	*	5			6					5
-	*	6			5					3
-	*	7			3					c
-	*/
-	cmp r3, #3 //If r3 is less than 3, print 3
-	it eq
-	beq print0
-	bcc print3
-
-	cmp r3, #4 //If r3 is 4
-	beq print6
-
-	cmp r3, #5 //If r3 is 5
-	beq print5
-
-	cmp r3, #6 //If r3 is 6
-	beq print3
-
-	cmp r3, #7 //If r3 is 7
-	beq printc
-
-printc:
-	ldr r4, [r2, #12] //Get data from LUT for C **ASK IF I NEED TO DO THIS**
-	lsl r4, r4, #3
-	str r4, [r1] //Store r4 data in GPIOB register.
-	b stage3
-print3:
-	ldr r4, [r2, #3] //Get data from LUT for 3 **ASK IF I NEED TO DO THIS**
-	lsl r4, r4, #3
-	str r4, [r1] //Store r4 data in GPIOB register.
-	b stage3
-print0:
-	ldr r4, [r2] //Get data from LUT for 0 **ASK IF I NEED TO DO THIS**
-	lsl r4, r4, #3
-	str r4, [r1] //Store r4 data in GPIOB register.
-	b stage3
-print6:
-	ldr r4, [r2, #6] //Get data from LUT for 6 **ASK IF I NEED TO DO THIS**
-	lsl r4, r4, #3
-	str r4, [r1] //Store r4 data in GPIOB register.
-	b stage3
-print5:
-	ldr r4, [r2, #5] //Get data from LUT for 5 **ASK IF I NEED TO DO THIS**
-	lsl r4, r4, #3
-	str r4, [r1] //Store r4 data in GPIOB register.
-	b stage3
-
-stage3:
-	//This stage is to read r3 and determine the next value, then branch to stage 4
-	cmp r3, #7
-	it eq
-	ldreq r3, =#0//if not 7 r3 = r3+1, if 7 r3 = 0
-	cmp r3, #7
-	it ne
-	addne r3, #1
-
-	//Branch to stage 4
-	b stage4
-
-stage4:
-	//This stage is to hold the program till the clock is off
-
-	//Begin by looking for GPIOA_IDR A0 bit to be low
-	ldr r4, [r0]
-
-	//Collect bit data using UBFX and store in r4
-	ubfx r4, r4, #0, #1//*ASK FOR HELP**\\
-
-	//Compare
-	cmp r4, #1
-	it eq //if equ
-	beq stage4
-	bne stage1//Otherwise restart program
+	//Increment Num
+	cmp r3, #7 //Compare r3 to 7
+	it eq //If 7, set to zero, alse add 1
+	ldreq r3, =#0 //If it is seven, make zero
+	beq loop //If it was made to be zero return to loop
+	add r3, r3, #1 //If it was not zero add one
+	b loop //Return to loop
 
 //----------------------------------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------------------------
+
 
 .align 4
 ssegdata:   // The LUT
-    .byte 0x3F  // 0
-    .byte 0x06  // 1
-    .byte 0x5B  // 2
     .byte 0x4F  // 3
-    .byte 0x66  // 4
-    .byte 0x6D  // 5
+    .byte 0x4F  // 3
+    .byte 0x4F  // 3
+    .byte 0x3F  // 0
     .byte 0x7D  // 6
-    .byte 0x07  // 7
-    .byte 0x7F  // 8
-    .byte 0x67  // 9
-    .byte 0x77  // A
-    .byte 0x7C  // B
-    .byte 0x29  // C
-    .byte 0x5E  // D
-    .byte 0x79  // E
-    .byte 0x71  // F
+    .byte 0x6D  // 5
+    .byte 0x4F  // 3
+    .byte 0x39  // C
+
+/*
+To make more efficient:
+-I can remove b loop as main.c is a loop
+-I can have C not print on start up and only print when button pushed
+Would remove 3 lines of code.
+*/

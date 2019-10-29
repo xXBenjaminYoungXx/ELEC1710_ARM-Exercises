@@ -289,129 +289,129 @@ LOAD c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu
                 0x08000000                g_pfnVectors
                 0x08000188                . = ALIGN (0x4)
 
-.text           0x08000190      0x34c
+.text           0x08000190      0x2f4
                 0x08000190                . = ALIGN (0x4)
  *(.text)
  .text          0x08000190       0x40 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtbegin.o
- .text          0x080001d0       0xac src/sseglut.o
+ .text          0x080001d0       0x54 src/sseglut.o
                 0x080001d0                sseglut
  *(.text*)
- .text.main     0x0800027c       0x98 src/main.o
-                0x0800027c                main
+ .text.main     0x08000224       0x98 src/main.o
+                0x08000224                main
  .text.Reset_Handler
-                0x08000314       0x48 startup/startup_stm32.o
-                0x08000314                Reset_Handler
+                0x080002bc       0x48 startup/startup_stm32.o
+                0x080002bc                Reset_Handler
  .text.Default_Handler
-                0x0800035c        0x2 startup/startup_stm32.o
-                0x0800035c                DebugMon_Handler
-                0x0800035c                HardFault_Handler
-                0x0800035c                SysTick_Handler
-                0x0800035c                PendSV_Handler
-                0x0800035c                NMI_Handler
-                0x0800035c                UsageFault_Handler
-                0x0800035c                Default_Handler
-                0x0800035c                MemManage_Handler
-                0x0800035c                SVC_Handler
-                0x0800035c                BusFault_Handler
- *fill*         0x0800035e        0x2 
+                0x08000304        0x2 startup/startup_stm32.o
+                0x08000304                DebugMon_Handler
+                0x08000304                HardFault_Handler
+                0x08000304                SysTick_Handler
+                0x08000304                PendSV_Handler
+                0x08000304                NMI_Handler
+                0x08000304                UsageFault_Handler
+                0x08000304                Default_Handler
+                0x08000304                MemManage_Handler
+                0x08000304                SVC_Handler
+                0x08000304                BusFault_Handler
+ *fill*         0x08000306        0x2 
  .text.__libc_init_array
-                0x08000360       0x48 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-init.o)
-                0x08000360                __libc_init_array
+                0x08000308       0x48 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-init.o)
+                0x08000308                __libc_init_array
  .text.startup.register_fini
-                0x080003a8       0x14 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__call_atexit.o)
- .text.atexit   0x080003bc        0xc c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-atexit.o)
-                0x080003bc                atexit
+                0x08000350       0x14 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__call_atexit.o)
+ .text.atexit   0x08000364        0xc c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-atexit.o)
+                0x08000364                atexit
  .text.__libc_fini_array
-                0x080003c8       0x34 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-fini.o)
-                0x080003c8                __libc_fini_array
+                0x08000370       0x34 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-fini.o)
+                0x08000370                __libc_fini_array
  .text.__retarget_lock_acquire_recursive
-                0x080003fc        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
-                0x080003fc                __retarget_lock_acquire_recursive
+                0x080003a4        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
+                0x080003a4                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x08000400        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
-                0x08000400                __retarget_lock_release_recursive
+                0x080003a8        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
+                0x080003a8                __retarget_lock_release_recursive
  .text.__register_exitproc
-                0x08000404       0xc0 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__atexit.o)
-                0x08000404                __register_exitproc
+                0x080003ac       0xc0 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__atexit.o)
+                0x080003ac                __register_exitproc
  *(.glue_7)
- .glue_7        0x080004c4        0x0 linker stubs
+ .glue_7        0x0800046c        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x080004c4        0x0 linker stubs
+ .glue_7t       0x0800046c        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x080004c4        0x0 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtbegin.o
+ .eh_frame      0x0800046c        0x0 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtbegin.o
  *(.init)
- .init          0x080004c4        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crti.o
-                0x080004c4                _init
- .init          0x080004c8        0x8 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtn.o
+ .init          0x0800046c        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crti.o
+                0x0800046c                _init
+ .init          0x08000470        0x8 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtn.o
  *(.fini)
- .fini          0x080004d0        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crti.o
-                0x080004d0                _fini
- .fini          0x080004d4        0x8 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtn.o
-                0x080004dc                . = ALIGN (0x4)
-                0x080004dc                _etext = .
+ .fini          0x08000478        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crti.o
+                0x08000478                _fini
+ .fini          0x0800047c        0x8 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtn.o
+                0x08000484                . = ALIGN (0x4)
+                0x08000484                _etext = .
 
-.vfp11_veneer   0x080004dc        0x0
- .vfp11_veneer  0x080004dc        0x0 linker stubs
+.vfp11_veneer   0x08000484        0x0
+ .vfp11_veneer  0x08000484        0x0 linker stubs
 
-.v4_bx          0x080004dc        0x0
- .v4_bx         0x080004dc        0x0 linker stubs
+.v4_bx          0x08000484        0x0
+ .v4_bx         0x08000484        0x0 linker stubs
 
-.iplt           0x080004dc        0x0
- .iplt          0x080004dc        0x0 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtbegin.o
+.iplt           0x08000484        0x0
+ .iplt          0x08000484        0x0 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtbegin.o
 
-.rodata         0x080004dc        0x4
-                0x080004dc                . = ALIGN (0x4)
+.rodata         0x08000484        0x4
+                0x08000484                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
  .rodata._global_impure_ptr
-                0x080004dc        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-impure.o)
-                0x080004dc                _global_impure_ptr
-                0x080004e0                . = ALIGN (0x4)
+                0x08000484        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-impure.o)
+                0x08000484                _global_impure_ptr
+                0x08000488                . = ALIGN (0x4)
 
-.rel.dyn        0x080004e0        0x0
- .rel.iplt      0x080004e0        0x0 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtbegin.o
+.rel.dyn        0x08000488        0x0
+ .rel.iplt      0x08000488        0x0 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtbegin.o
 
-.ARM.extab      0x080004e0        0x0
-                0x080004e0                . = ALIGN (0x4)
+.ARM.extab      0x08000488        0x0
+                0x08000488                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x080004e0                . = ALIGN (0x4)
+                0x08000488                . = ALIGN (0x4)
 
-.ARM            0x080004e0        0x0
-                0x080004e0                . = ALIGN (0x4)
-                0x080004e0                __exidx_start = .
+.ARM            0x08000488        0x0
+                0x08000488                . = ALIGN (0x4)
+                0x08000488                __exidx_start = .
  *(.ARM.exidx*)
-                0x080004e0                __exidx_end = .
-                0x080004e0                . = ALIGN (0x4)
+                0x08000488                __exidx_end = .
+                0x08000488                . = ALIGN (0x4)
 
-.preinit_array  0x080004e0        0x0
-                0x080004e0                . = ALIGN (0x4)
-                0x080004e0                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x08000488        0x0
+                0x08000488                . = ALIGN (0x4)
+                0x08000488                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x080004e0                PROVIDE (__preinit_array_end = .)
-                0x080004e0                . = ALIGN (0x4)
+                0x08000488                PROVIDE (__preinit_array_end = .)
+                0x08000488                . = ALIGN (0x4)
 
-.init_array     0x080004e0        0x8
-                0x080004e0                . = ALIGN (0x4)
-                0x080004e0                PROVIDE (__init_array_start = .)
+.init_array     0x08000488        0x8
+                0x08000488                . = ALIGN (0x4)
+                0x08000488                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00000
-                0x080004e0        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__call_atexit.o)
+                0x08000488        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x080004e4        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtbegin.o
-                0x080004e8                PROVIDE (__init_array_end = .)
-                0x080004e8                . = ALIGN (0x4)
+ .init_array    0x0800048c        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtbegin.o
+                0x08000490                PROVIDE (__init_array_end = .)
+                0x08000490                . = ALIGN (0x4)
 
-.fini_array     0x080004e8        0x4
-                0x080004e8                . = ALIGN (0x4)
-                0x080004e8                PROVIDE (__fini_array_start = .)
+.fini_array     0x08000490        0x4
+                0x08000490                . = ALIGN (0x4)
+                0x08000490                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x080004e8        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtbegin.o
-                0x080004ec                PROVIDE (__fini_array_end = .)
-                0x080004ec                . = ALIGN (0x4)
-                0x080004ec                _sidata = LOADADDR (.data)
+ .fini_array    0x08000490        0x4 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtbegin.o
+                0x08000494                PROVIDE (__fini_array_end = .)
+                0x08000494                . = ALIGN (0x4)
+                0x08000494                _sidata = LOADADDR (.data)
 
-.data           0x20000000      0x42c load address 0x080004ec
+.data           0x20000000      0x42c load address 0x08000494
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -424,11 +424,11 @@ LOAD c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu
                 0x2000042c                . = ALIGN (0x4)
                 0x2000042c                _edata = .
 
-.igot.plt       0x2000042c        0x0 load address 0x08000918
+.igot.plt       0x2000042c        0x0 load address 0x080008c0
  .igot.plt      0x2000042c        0x0 c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7-m/crtbegin.o
                 0x2000042c                . = ALIGN (0x4)
 
-.bss            0x2000042c       0x40 load address 0x08000918
+.bss            0x2000042c       0x40 load address 0x080008c0
                 0x2000042c                _sbss = .
                 0x2000042c                __bss_start__ = _sbss
  *(.bss)
@@ -451,7 +451,7 @@ LOAD c:/users/user/eclipse-cpp-2019-09-r-win32-x86_64/eclipse/plugins/fr.ac6.mcu
                 0x2000046c                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x2000046c      0x404 load address 0x08000918
+                0x2000046c      0x404 load address 0x080008c0
                 0x20000470                . = ALIGN (0x8)
  *fill*         0x2000046c        0x4 
                 0x20000470                PROVIDE (end = .)
@@ -524,10 +524,10 @@ OUTPUT(ELEC1710_ARM_Exercises.elf elf32-littlearm)
  .debug_macro   0x0000001a      0xa60 src/main.o
  .debug_macro   0x00000a7a       0x52 src/main.o
 
-.debug_line     0x00000000      0x1af
+.debug_line     0x00000000      0x188
  .debug_line    0x00000000       0xb5 src/main.o
- .debug_line    0x000000b5       0x81 src/sseglut.o
- .debug_line    0x00000136       0x79 startup/startup_stm32.o
+ .debug_line    0x000000b5       0x5a src/sseglut.o
+ .debug_line    0x0000010f       0x79 startup/startup_stm32.o
 
 .debug_str      0x00000000     0x2f17
  .debug_str     0x00000000     0x2edd src/main.o
