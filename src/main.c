@@ -37,26 +37,11 @@ int main(void)
 
 	for(;;) {
 		
-		// Uncomment to call label "blinky" in blinky.s
-		//blinky();
-
 		// Uncomment to call sseglut in sseglut.s
 		sseglut();
 
-		// Uncomment the section below to run the array sum functions
-	/*
-		// The byte array that gets summed together
-		unsigned char bytearray[] = {2,1,5,8,6,65,235,45,98,5,7};
-		// The array of ints for summing together
-		int intarray[] = {0x123456, 0x321654, 0x21654987};
-		volatile unsigned int total;
-		total = bytearraysum(bytearray, sizeof(bytearray));
-		total = intarraysum(intarray, sizeof(intarray)/4); // Division by 4 because sizeof() returns a count in bytes
-	*/
-
 		// Uncomment the block below to perform the integer square root exercise
 
-	/*
 		volatile unsigned int result, argument;
 		argument = 2456490969; 			// Result should be 49563 (2456490969 is 49563 squared)
 		PORTB_ODR = (1<<8);
@@ -69,7 +54,6 @@ int main(void)
 		// A delay so that integer square root timing can be unambiguously seen on GPIOB8
 		volatile unsigned int x;
 		for(x = 0; x < 100; x++);
-	*/
 	}
 }
 
