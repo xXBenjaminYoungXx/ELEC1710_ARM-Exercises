@@ -62,7 +62,7 @@ loop:
 
 //--Update Output/LED Display to respective state (Determined by r3)
 	ldrb r4, [r2, r3] //Load data off LUT position r3
-	lsl r4, r4, #3 //Shift bits by 3 to accomidate GPIOB pins
+	lsl r4, r4, 0x3 //Shift bits by 3 to accomidate GPIOB pins
 	str r4, [r1] //Store data in GPIOB (Output)
 
 //--load Input, Branch off if current state is greater than previous state
@@ -73,15 +73,15 @@ loop:
 
 writenum:
 //--Compare current display state to final display state
-	cmp r3, #7 //Compare r3 to 7
+	cmp r3, 0x7 //Compare r3 to 7
 
 //--If current = final, reset display state
 	it eq //If 7, set to zero, alse add 1
-	ldreq r3, =#0 //If it is seven, make zero
+	ldreq r3, =0x0 //If it is seven, make zero
 	beq loop //If it was made to be zero return to loop
 
 //--Else increment state
-	add r3, r3, #1 //If it was not zero Increment r3
+	add r3, r3, 0x1 //If it was not zero Increment r3
 	b loop
 
 //----------------------------------------------------------------------------------------------------------------------------------------------
