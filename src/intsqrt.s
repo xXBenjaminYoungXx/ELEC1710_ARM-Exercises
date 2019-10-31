@@ -27,5 +27,4 @@
 intsqrt:
 
 
-	// Remember: MOV the result to r0 before the branch below is executed
   	bx lr	// Branch to the address in lr (link register) to return
