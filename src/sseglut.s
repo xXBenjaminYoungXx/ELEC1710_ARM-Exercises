@@ -24,6 +24,11 @@
 //Main Instruction Body|
 //----------------------
 
+/*
+*	Structure:
+*		-sseglut
+			-Initialise regestures
+*/
 //Register Uses:
 	//r0 = GPIOA
 	//r1 = GPIOB
@@ -38,39 +43,34 @@ sseglut:
 	ldr r1, =GPIOB_ODR //r1 hold address of GPIOB
 	ldr r2, =ssegdata //Store LUT data in r2
 	ldr r3, =0x0 //Count Memory
-	ldr r5, =0x0 //State of button prior (Before)
-
-	//Set Seg to display C
-	ldrb r4, [r2, #7] //get data for c from LUT
-	lsl r4, r4, #3 //Shift bits by three as B0-2 are a no-go
-	str r4, [r1] //Store that data into GPIOB (Output) regesture
+	ldr r6, =0x0 //State of button prior (Before)
 
 loop:
+	mov r5, r6 //Make Previous state equal to current state
+
+	ldrb r4, [r2, r3] //Load data off LUT position r3
+	lsl r4, r4, #3 //Shift bits by 3
+	str r4, [r1] //Store data in GPIOB (Output)
 	ldrb r6, [r0] //Load GPIOA (Input)
 	cmp r6, r5 //If 0,0:Loop | 1,0:writenum | 0,1:Loop | 1,1:Loop
 	it ls //If input has gone from off to on (Ie greater than) continue else loop
 	bls loop //If not greater than I.e 0-->1, loop
 
 writenum:
-	ldrb r4, [r2, r3] //Load data off LUT position r3
-	lsl r4, r4, #3 //Shift bits by 3
-	str r4, [r1] //Store data in GPIOB (Output)
-	mov r5, r6 //Make State prev eq to current state
-
-	//Increment Num
-	cmp r3, #7 //Compare r3 to 7
+	//Increment r3
+	cmp r3, #7 //Compare r3to 7
 	it eq //If 7, set to zero, alse add 1
 	ldreq r3, =#0 //If it is seven, make zero
 	beq loop //If it was made to be zero return to loop
 	add r3, r3, #1 //If it was not zero add one
-	b loop //Return to loop
-
+	b loop
 //----------------------------------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------------------------
 
 
 .align 4
 ssegdata:   // The LUT
+    .byte 0x39  // C
     .byte 0x4F  // 3
     .byte 0x4F  // 3
     .byte 0x4F  // 3
@@ -78,7 +78,7 @@ ssegdata:   // The LUT
     .byte 0x7D  // 6
     .byte 0x6D  // 5
     .byte 0x4F  // 3
-    .byte 0x39  // C
+
 
 /*
 To make more efficient:
