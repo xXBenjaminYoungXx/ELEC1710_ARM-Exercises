@@ -42,15 +42,15 @@ int main(void)
 
 		// Uncomment the block below to perform the integer square root exercise
 
-		volatile unsigned int result, argument;
-		argument = 2456490969; 			// Result should be 49563 (2456490969 is 49563 squared)
+		/*volatile unsigned int result, argument;
+		argument = 4762; 			// Result should be 49563 (2456490969 is 49563 squared)
 		PORTB_ODR = (1<<8);
 		result = intsqrt(argument); 	// Call your integer square root function
 		PORTB_ODR = 0;
 		PORTB_ODR = (1<<8);
 		result = intsqrt_c(argument);	// Call the C integer square root function
 		PORTB_ODR = 0;
-
+*/
 		// A delay so that integer square root timing can be unambiguously seen on GPIOB8
 		volatile unsigned int x;
 		for(x = 0; x < 100; x++);
